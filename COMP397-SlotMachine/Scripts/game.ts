@@ -4,6 +4,12 @@
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="../config/constants.ts" />
+/// <reference path="../objects/label.ts" />
+/// <reference path="../objects/button.ts" />
+
+
+
 
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
@@ -16,9 +22,47 @@ var manifest = [
     { id: "clicked", src: "assets/audio/clicked.wav" }
 ];
 
+var atlas = {
+    "images": ["assets/images/atlas.png"],
+    "frames": [
+
+        [2, 2, 64, 64],
+        [2, 68, 64, 64],
+        [2, 134, 64, 64],
+        [200, 2, 49, 49],
+        [200, 53, 49, 49],
+        [200, 104, 49, 49],
+        [68, 2, 64, 64],
+        [134, 2, 64, 64],
+        [68, 68, 64, 64],
+        [134, 68, 64, 64],
+        [134, 134, 49, 49],
+        [68, 134, 64, 64],
+        [185, 155, 49, 49]
+    ],
+    "animations": {
+
+        "bananaSymbol": [0],
+        "barSymbol": [1],
+        "bellSymbol": [2],
+        "betMaxButton": [3],
+        "betOneButton": [4],
+        "betTenButton": [5],
+        "blankSymbol": [6],
+        "cherrySymbol": [7],
+        "grapesSymbol": [8],
+        "orangeSymbol": [9],
+        "resetButton": [10],
+        "sevenSymbol": [11],
+        "spinButton": [12]
+    }
+};
+
 
 // Game Variables
 var background: createjs.Bitmap;
+var textureAtlas: createjs.SpriteSheet;
+var spinButton: objects.Button;
 
 
 // Preloader Function
@@ -28,6 +72,10 @@ function preload() {
     // event listener triggers when assets are completely loaded
     assets.on("complete", init, this); 
     assets.loadManifest(manifest);
+
+    // Load Texture Atlas
+    textureAtlas = new createjs.SpriteSheet(atlas);
+
     //Setup statistics object
     setupStats();
 }
@@ -68,7 +116,7 @@ function gameLoop() {
 }
 
 // Callback function that allows me to respond to button click events
-function pinkButtonClicked(event: createjs.MouseEvent) {
+function spinButtonClicked(event: createjs.MouseEvent) {
     createjs.Sound.play("clicked");
 }
 
@@ -81,5 +129,10 @@ function main() {
     // add in slot machine graphic
     background = new createjs.Bitmap(assets.getResult("background"));
     stage.addChild(background);
+
+    // add spinButton sprite
+    spinButton = new objects.Button("spinButton", 225, 334, false);
+    stage.addChild(spinButton);
+    spinButton.on("click", spinButtonClicked, this);
 
 }
