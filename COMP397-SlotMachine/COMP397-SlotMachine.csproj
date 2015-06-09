@@ -59,7 +59,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\bananaSymbol.png" />
+    <Content Include="assets\images\barSymbol.png" />
+    <Content Include="assets\images\bellSymbol.png" />
+    <Content Include="assets\images\betMaxButton.png" />
+    <Content Include="assets\images\betOneButton.png" />
+    <Content Include="assets\images\betTenButton.png" />
+    <Content Include="assets\images\blankSymbol.png" />
+    <Content Include="assets\images\button-template.png" />
+    <Content Include="assets\images\cherrySymbol.png" />
+    <Content Include="assets\images\grapesSymbol.png" />
+    <Content Include="assets\images\orangeSymbol.png" />
+    <Content Include="assets\images\resetButton.png" />
+    <Content Include="assets\images\sevenSymbol.png" />
+    <Content Include="assets\images\slotMachine.png" />
+    <Content Include="assets\images\spinButton.png" />
     <Content Include="packages.config" />
+    <Content Include="assets\images\atlas.json" />
+    <Content Include="assets\images\slot-machine.tps" />
+    <Content Include="assets\images\UI Element Positions.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -69,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\audio\clicked.wav" />
-    <Content Include="assets\images\pinkButton.png" />
     <Content Include="css\main.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
